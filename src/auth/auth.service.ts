@@ -167,17 +167,17 @@ export class AuthService {
     let filePath: string;
 
     if (correo == "register") {
-      url = `https://woody.netlify.app/woody-sesion?token=${token}`;
+      url = `https://woodyjacques.netlify.app/woody-sesion?token=${token}`;
       filePath = path.resolve(process.cwd(), 'src/auth/html/plantillaReg.html');
     }
 
     if (correo == "agregado") {
-      url = `https://woody.netlify.app/?token=${token}`;
+      url = `https://woodyjacques.netlify.app/?token=${token}`;
       filePath = path.resolve(process.cwd(), 'src/auth/html/plantillaAgre.html');
     }
 
     if (correo == "verificacion") {
-      url = `https://woody.netlify.app/woody-passwordupemail?token=${token}`;
+      url = `https://woodyjacques.netlify.app/woody-passwordupemail?token=${token}`;
       filePath = path.resolve(process.cwd(), 'src/auth/html/plantilla.html');
     }
 
