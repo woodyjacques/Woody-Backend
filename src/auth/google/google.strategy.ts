@@ -13,7 +13,7 @@ export class GoogleStrategy extends PassportStrategy(Strategy, 'google') {
         super({
             clientID: process.env.googleId,
             clientSecret: process.env.googleScret,
-            callbackURL:'https://stark-backend-pink.vercel.app/google/redirect',
+            callbackURL:'https://woody-backend.vercel.app/google/redirect',
             scope: ['email', 'profile'],
         });
     }

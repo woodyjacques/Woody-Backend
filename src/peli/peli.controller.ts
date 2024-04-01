@@ -4,7 +4,7 @@ import { CreatePeliDto } from './dto/create-peli.dto';
 import { UpdatePeliDto } from './dto/update-peli.dto';
 import { ApiTags } from '@nestjs/swagger';
 
-@ApiTags('Books')
+@ApiTags('Peli')
 @Controller('peli')
 export class PeliController {
   constructor(private readonly peliService: PeliService) {}
