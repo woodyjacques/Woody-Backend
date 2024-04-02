@@ -1,5 +1,5 @@
 
-CREATE TABLE user_wooody (
+CREATE TABLE user_woody (
     id INT NOT NULL AUTO_INCREMENT,
     name VARCHAR(500) NOT NULL,
     email VARCHAR(255) NOT NULL,
