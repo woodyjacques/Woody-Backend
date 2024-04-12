@@ -22,7 +22,7 @@ require('dotenv').config();
       entities: [join(__dirname + '/**/*.entity{.ts,.js}')],
       synchronize: false,
       ssl: {
-        rejectUnauthorized: true,
+        rejectUnauthorized: false,
       },
     }),
     UsersModule,
