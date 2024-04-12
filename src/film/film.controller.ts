@@ -1,11 +1,11 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
-import { PeliService } from './peli.service';
+import { PeliService } from './film.service';
 import { CreateFilmDto } from './dto/create-film.dto';
 import { UpdateFilmDto } from './dto/update-film.dto';
 import { ApiTags } from '@nestjs/swagger';
 
-@ApiTags('Peli')
-@Controller('peli')
+@ApiTags('Film')
+@Controller('film')
 export class PeliController {
   constructor(private readonly peliService: PeliService) {}
 

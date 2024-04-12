@@ -1,17 +1,17 @@
 import { Module } from '@nestjs/common';
-import { RelaService } from './rela.service';
-import { RelaController } from './rela.controller';
+import { RelaService } from './stori.service';
+import { RelaController } from './stori.controller';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { RelatosWoody } from './entities/rela.entity';
+import { StoriWoody } from './entities/stori.entity';
 import { UsersModule } from 'src/users/users.module';
 import { AuthModule } from 'src/auth/auth.module';
 
 @Module({
   imports: [
-    TypeOrmModule.forFeature([RelatosWoody]), UsersModule, AuthModule,
+    TypeOrmModule.forFeature([StoriWoody]), UsersModule, AuthModule,
   ],
   controllers: [RelaController],
   providers: [RelaService],
   exports: [RelaService]
 })
-export class RelaModule { }
+export class StoriModule { }

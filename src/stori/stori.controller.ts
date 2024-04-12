@@ -1,11 +1,11 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
-import { RelaService } from './rela.service';
-import { CreateRelaDto } from './dto/create-rela.dto';
-import { UpdateRelaDto } from './dto/update-rela.dto';
+import { RelaService } from './stori.service';
+import { CreateStoriDto } from './dto/create-stori.dto';
+import { UpdateStoriDto } from './dto/update-stori.dto';
 import { ApiTags } from '@nestjs/swagger';
 
-@ApiTags('rela')
-@Controller('rela')
+@ApiTags('Stori')
+@Controller('stori')
 export class RelaController {
   constructor(private readonly relaService: RelaService) {}
 
@@ -20,13 +20,13 @@ export class RelaController {
   }
 
   @Post()
-  create(@Body() createRelaDto: CreateRelaDto) {
-    return this.relaService.create(createRelaDto);
+  create(@Body() createStoriDto: CreateStoriDto) {
+    return this.relaService.create(createStoriDto);
   }
 
   @Patch(':id')
-  update(@Param('id') id: number, @Body() updateRelaDto: UpdateRelaDto) {
-    return this.relaService.update(id, updateRelaDto);
+  update(@Param('id') id: number, @Body() updateStoriDto: UpdateStoriDto) {
+    return this.relaService.update(id, updateStoriDto);
   }
 
   @Delete(':id')

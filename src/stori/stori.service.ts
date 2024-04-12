@@ -1,8 +1,8 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
-import { CreateRelaDto } from './dto/create-rela.dto';
-import { UpdateRelaDto } from './dto/update-rela.dto';
+import { CreateStoriDto } from './dto/create-stori.dto';
+import { UpdateStoriDto } from './dto/update-stori.dto';
 import { InjectRepository } from '@nestjs/typeorm';
-import { RelatosWoody } from './entities/rela.entity';
+import { StoriWoody } from './entities/stori.entity';
 import { Repository } from 'typeorm';
 import { UsersService } from 'src/users/users.service';
 import { AuthService } from 'src/auth/auth.service';
@@ -10,56 +10,56 @@ import { AuthService } from 'src/auth/auth.service';
 @Injectable()
 export class RelaService {
   constructor(
-    @InjectRepository(RelatosWoody)
-    private relaRepository: Repository<RelatosWoody>,
+    @InjectRepository(StoriWoody)
+    private storiRepository: Repository<StoriWoody>,
     private usersService: UsersService,
     private authService: AuthService
   ) { }
 
   async findAll() {
-    const rela = await this.relaRepository.find();
-    return rela;
+    const stori = await this.storiRepository.find();
+    return stori;
   }
 
   async findById(id: number) {
-    const rela = await this.relaRepository.findOne({ where: { id } });
+    const stori = await this.storiRepository.findOne({ where: { id } });
 
-    if (!rela) {
+    if (!stori) {
       throw new NotFoundException(`Este relato no existe`);
     }
 
-    return rela;
+    return stori;
   }
 
-  async create(createRelaDto: CreateRelaDto) {
-    const newRela = this.relaRepository.create(createRelaDto);
-    const creado = await this.relaRepository.save(newRela);
+  async create(createStoriDto: CreateStoriDto) {
+    const newStori = this.storiRepository.create(createStoriDto);
+    const creado = await this.storiRepository.save(newStori);
 
     if (creado) {
       const emailes = await this.usersService.findAllEmails();
       await this.enviarCorreos(emailes.emailes);
     }
 
-    return newRela;
+    return newStori;
   }
 
-  async update(id: number, updateBookDto: UpdateRelaDto) {
-    const existingRela = await this.findById(id);
-    const updatedRela = { ...existingRela, ...updateBookDto };
-    const creado = await this.relaRepository.save(updatedRela);
+  async update(id: number, updateStoriDto: UpdateStoriDto) {
+    const existingStori = await this.findById(id);
+    const updatedStori = { ...existingStori, ...updateStoriDto };
+    const creado = await this.storiRepository.save(updatedStori);
 
     if (creado) {
       const emailes = await this.usersService.findAllEmails();
       await this.enviarCorreos(emailes.emailes);
     }
 
-    return updatedRela;
+    return updatedStori;
   }
 
   async remove(id: number) {
-    const existingRela = await this.findById(id);
-    await this.relaRepository.remove(existingRela);
-    return existingRela;
+    const existingStori = await this.findById(id);
+    await this.storiRepository.remove(existingStori);
+    return existingStori;
   }
 
   async enviarCorreos(emailes: string[]) {
