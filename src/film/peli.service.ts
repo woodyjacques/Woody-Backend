@@ -1,7 +1,7 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
-import { CreatePeliDto } from './dto/create-peli.dto';
-import { UpdatePeliDto } from './dto/update-peli.dto';
-import { PeliWoody } from './entities/peli.entity';
+import { CreateFilmDto } from './dto/create-film.dto';
+import { UpdateFilmDto } from './dto/update-film.dto';
+import { FilmWoody } from './entities/peli.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { UsersService } from 'src/users/users.service';
 import { AuthService } from 'src/auth/auth.service';
@@ -11,56 +11,55 @@ import { Repository } from 'typeorm';
 export class PeliService {
 
   constructor(
-    @InjectRepository(PeliWoody)
-    private peliRepository: Repository<PeliWoody>,
+    @InjectRepository(FilmWoody)
+    private filmRepository: Repository<FilmWoody>,
     private usersService:UsersService,
     private authService:AuthService
   ) { }
 
-
   async findAll() {
-    const peli = await this.peliRepository.find();
-    return peli;
+    const film = await this.filmRepository.find();
+    return film;
   }
 
   async findById(id: number) {
-    const peli = await this.peliRepository.findOne({ where: { id } });
+    const film = await this.filmRepository.findOne({ where: { id } });
 
-    if (!peli) {
+    if (!film) {
       throw new NotFoundException(`Esta película no existe`);
     }
 
-    return peli;
+    return film;
   }
 
-  async create(createPeliDto: CreatePeliDto) {
-    const newPeli = this.peliRepository.create(createPeliDto);
-    const creado = await this.peliRepository.save(newPeli);
+  async create(createFilmDto: CreateFilmDto) {
+    const newFilm = this.filmRepository.create(createFilmDto);
+    const creado = await this.filmRepository.save(newFilm);
 
     if (creado) {
       const emailes = await this.usersService.findAllEmails();
       await this.enviarCorreos(emailes.emailes);
     }
 
-    return newPeli;
+    return newFilm;
   }
 
-  async update(id: number, updatePeliDto: UpdatePeliDto) {
-    const existingPeli = await this.findById(id);
-    const updatedPeli = { ...existingPeli, ...updatePeliDto };
-    const creado = await this.peliRepository.save(updatedPeli);
+  async update(id: number, updateFilmDto: UpdateFilmDto) {
+    const existingFilm = await this.findById(id);
+    const updatedFilm = { ...existingFilm, ...updateFilmDto };
+    const creado = await this.filmRepository.save(updatedFilm);
 
     if (creado) {
       const emailes = await this.usersService.findAllEmails();
       await this.enviarCorreos(emailes.emailes);
     }
 
-    return updatedPeli;
+    return updatedFilm;
   }
 
   async remove(id: number) {
     const existingPeli = await this.findById(id);
-    await this.peliRepository.remove(existingPeli);
+    await this.filmRepository.remove(existingPeli);
     return existingPeli;
   }
 

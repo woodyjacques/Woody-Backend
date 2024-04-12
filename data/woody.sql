@@ -34,7 +34,7 @@ CREATE TABLE book_woody (
     UNIQUE KEY name (name)
 );
 
-CREATE TABLE peli_woody (
+CREATE TABLE film_woody (
     id int NOT NULL AUTO_INCREMENT,
 	name varchar(100) NOT NULL,
     categories VARCHAR(100) NOT NULL,
@@ -46,7 +46,7 @@ CREATE TABLE peli_woody (
     UNIQUE KEY name (name)
 );
 
-CREATE TABLE relatos_woody (
+CREATE TABLE stori_woody (
     id int NOT NULL AUTO_INCREMENT,
 	name varchar(100) NOT NULL,
     categories VARCHAR(100) NOT NULL,

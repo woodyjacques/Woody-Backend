@@ -1,6 +1,6 @@
 import { ApiProperty } from "@nestjs/swagger";
 
-export class UpdatePeliDto {
+export class UpdateFilmDto {
     @ApiProperty()
     name: string;
     @ApiProperty()

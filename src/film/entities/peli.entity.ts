@@ -1,7 +1,7 @@
 import {Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 @Entity()
 
-export class PeliWoody {
+export class FilmWoody {
     @PrimaryGeneratedColumn()
     id: number;
     @Column({ unique: true })

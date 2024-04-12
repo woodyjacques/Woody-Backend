@@ -1,7 +1,7 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
 import { PeliService } from './peli.service';
-import { CreatePeliDto } from './dto/create-peli.dto';
-import { UpdatePeliDto } from './dto/update-peli.dto';
+import { CreateFilmDto } from './dto/create-film.dto';
+import { UpdateFilmDto } from './dto/update-film.dto';
 import { ApiTags } from '@nestjs/swagger';
 
 @ApiTags('Peli')
@@ -20,13 +20,13 @@ export class PeliController {
   }
 
   @Post()
-  create(@Body() createPeliDto: CreatePeliDto) {
-    return this.peliService.create(createPeliDto);
+  create(@Body() createFilmDto: CreateFilmDto) {
+    return this.peliService.create(createFilmDto);
   }
 
   @Patch(':id')
-  update(@Param('id') id: number, @Body() updatePeliDto: UpdatePeliDto) {
-    return this.peliService.update(id, updatePeliDto);
+  update(@Param('id') id: number, @Body() updateFilmDto: UpdateFilmDto) {
+    return this.peliService.update(id, updateFilmDto);
   }
 
   @Delete(':id')
