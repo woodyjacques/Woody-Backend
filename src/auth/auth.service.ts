@@ -104,6 +104,7 @@ export class AuthService {
     const payload = { email: user.email, name: user.name, paper: user.paper };
 
     const token = await this.jwtService.signAsync(payload);
+    console.log("Vercel");
 
     return {
       token: token,
