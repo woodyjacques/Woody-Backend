@@ -15,8 +15,9 @@ export class GoogleService {
 
     const name = req.user.firstName;
     const email = req.user.email;
-    const telefono = "00000000"
+    const telephone = "00000000"
     const password = "hola";
+    const paper = "usuario"
     const isVerified = true;
 
     let user = await this.usersService.findOneByEmail(email);
@@ -24,7 +25,7 @@ export class GoogleService {
 
     if (!user) {
       const hashedPassword = await bcryptjs.hash(password, 10);
-      user = await this.saveUser({ name, email, telefono, password: hashedPassword, isVerified });
+      user = await this.saveUser({ name, email,  telephone, password: hashedPassword, paper, isVerified });
     }
 
     token = await this.generateToken(user);
@@ -32,16 +33,18 @@ export class GoogleService {
     return {
       token: token,
       name: user.name,
-      email: user.email
+      email: user.email,
+      paper: user.paper
     };
   }
 
-  private async saveUser({ name, email, telefono, password, isVerified }) {
+  private async saveUser({ name, email, telephone, password, paper, isVerified }) {
     return this.usersService.create({
       name,
       email,
-      telefono,
+      telephone,
       password,
+      paper,
       isVerified,
     });
   }

@@ -9,11 +9,11 @@ export class UserWoody {
   @Column({ unique: true, nullable: false })
   email: string;
   @Column({ length: 500 })
-  telefono: string;
+  telephone: string;
   @Column({ nullable: false })
   password: string;
-  @Column({ default: "user" })
-  rol: string;
+  @Column()
+  paper: string;
   @Column()
   isVerified: boolean;
   @DeleteDateColumn()

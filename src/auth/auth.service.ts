@@ -27,7 +27,8 @@ export class AuthService {
     return users;
   }
 
-  async register({ password, email, telefono, name, isVerified }: RegisterDto) {
+  async register({ name, email, telephone, password, paper, isVerified }: RegisterDto) {
+  
     const user = await this.usersService.findOneByEmail(email);
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/i;
 
@@ -44,15 +45,18 @@ export class AuthService {
     await this.usersService.create({
       name,
       email,
-      telefono,
+      telephone,
       password: hashedPassword,
+      paper,
       isVerified
     });
 
-    const Usuario = { email, name, password }
-    let correo = "register";
-
-    await this.envioEmail(Usuario, email, correo);
+    if(paper == "usuario"){
+      const Usuario = { email, name, password }
+      let correo = "register";
+  
+      await this.envioEmail(Usuario, email, correo);
+    }
 
     return {
       message: "Usuario registrado correctamente.",
@@ -97,14 +101,15 @@ export class AuthService {
       throw new UnauthorizedException("Su cuenta no está verificada");
     }
 
-    const payload = { email: user.email, name: user.name };
+    const payload = { email: user.email, name: user.name, paper: user.paper };
 
     const token = await this.jwtService.signAsync(payload);
 
     return {
       token: token,
       name: user.name,
-      email: user.email
+      email: user.email,
+      paper: user.paper
     };
   }
 
