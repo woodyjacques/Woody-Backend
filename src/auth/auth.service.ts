@@ -27,6 +27,11 @@ export class AuthService {
     return users;
   }
 
+  async findById(email:string) {
+    const users = await this.usersService.findOneByEmail(email);
+    return users;
+  }
+
   async register({ name, email, password, paper, isVerified }: RegisterDto) {
     const user = await this.usersService.findOneByEmail(email);
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/i;

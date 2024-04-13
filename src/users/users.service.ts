@@ -59,8 +59,15 @@ export class UsersService {
   }
 
   async findAllUser() {
-    const users = await this. usersRepository.find();
-    return users;
+    const users = await this.usersRepository.find();
+
+    const userInfo = users.map(user => ({
+      name: user.name,
+      email: user.email,
+      paper: user.paper
+    }));
+
+    return userInfo;
   }
 
 }
