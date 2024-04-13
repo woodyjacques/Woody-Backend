@@ -50,7 +50,7 @@ export class GoogleService {
   }
 
   private async generateToken(user): Promise<string> {
-    const payload = { email: user.email, name: user.name };
+    const payload = { email: user.email, name: user.name, paper:user.paper };
     return this.jwtService.signAsync(payload);
   }
 
