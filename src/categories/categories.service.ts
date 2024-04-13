@@ -21,23 +21,32 @@ export class CategoriesService {
     const category = await this.categoryRepository.findOne({ where: { id } });
 
     if (!category) {
-      throw new NotFoundException(`Categoria no existe`);
+      throw new NotFoundException(`Categoría no existe`);
     }
 
     return category;
   }
 
   async create(createCategoryDto: CreateCategoryDto) {
+    const { name } = createCategoryDto;
+    const existingCategory = await this.categoryRepository.findOne({ where: { name } });
+  
+    if (existingCategory) {
+      throw new NotFoundException(`La categoría "${name}" ya existe`);
+    }
+
     const newCategory = this.categoryRepository.create(createCategoryDto);
     await this.categoryRepository.save(newCategory);
-    return newCategory;
+  
+    return { message: "Categoría agregada" };
   }
+   
 
   async update(id: number, updateCategoryDto: UpdateCategoryDto) {
     const existingCategory = await this.findById(id);
     const updatedCategory = { ...existingCategory, ...updateCategoryDto };
     await this.categoryRepository.save(updatedCategory);
-    return updatedCategory;
+    return { message: "Categoría actualizada" };
   }
 
   async remove(id: number) {
