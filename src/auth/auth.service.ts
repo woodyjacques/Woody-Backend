@@ -27,8 +27,8 @@ export class AuthService {
     return users;
   }
 
-  async findById(email:string) {
-    const users = await this.usersService.findOneByEmail(email);
+  async findByEmail(email:string) {
+    const users = await this.usersService.findOneByEmail2(email);
     return users;
   }
 

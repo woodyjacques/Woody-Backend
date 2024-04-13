@@ -48,7 +48,7 @@ export class AuthController {
 
   @Get('users:email')
   async findByEmail(@Param('email') email: string) {
-    return this.authService.findById(email); 
+    return this.authService.findByEmail(email); 
   }
 
 }

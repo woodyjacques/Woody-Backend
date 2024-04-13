@@ -16,7 +16,14 @@ export class UsersService {
   }
 
   async findOneByEmail(email: string) {
-    return await this.usersRepository.findOneBy({ email });
+    const user = await this.usersRepository.findOneBy({ email });
+    return user;
+  }
+
+  async findOneByEmail2(email: string) {
+    const user = await this.usersRepository.findOneBy({ email });
+    const ifuser = {name: user.name, email: user.email, paper: user.paper }
+    return ifuser;
   }
 
   async updatePassword(email: string, newPassword: string) {
