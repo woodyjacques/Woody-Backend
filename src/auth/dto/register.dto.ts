@@ -8,8 +8,6 @@ export class RegisterDto {
   @IsEmail()
   email: string;
   @IsString()
-  telephone: string;
-  @IsString()
   @MinLength(6)
   @Transform(({ value }) => value.trim())
   password: string;

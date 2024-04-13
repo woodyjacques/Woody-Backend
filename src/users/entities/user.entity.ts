@@ -8,8 +8,6 @@ export class UserWoody {
   name: string;
   @Column({ unique: true, nullable: false })
   email: string;
-  @Column({ length: 500 })
-  telephone: string;
   @Column({ nullable: false })
   password: string;
   @Column()

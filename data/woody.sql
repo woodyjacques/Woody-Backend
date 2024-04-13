@@ -3,7 +3,6 @@ CREATE TABLE user_woody (
     id INT NOT NULL AUTO_INCREMENT,
     name VARCHAR(500) NOT NULL,
     email VARCHAR(255) NOT NULL,
-    telephone  VARCHAR(255) NOT NULL,
     password VARCHAR(255) NOT NULL,
     paper VARCHAR(255) NOT NULL,
     isVerified BOOLEAN ,  
