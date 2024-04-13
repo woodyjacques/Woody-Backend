@@ -28,7 +28,6 @@ export class AuthService {
   }
 
   async register({ name, email, password, paper, isVerified }: RegisterDto) {
-  
     const user = await this.usersService.findOneByEmail(email);
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/i;
 
@@ -50,10 +49,10 @@ export class AuthService {
       isVerified
     });
 
-    if(paper == "usuario"){
+    if (paper == "usuario") {
       const Usuario = { email, name, password }
       let correo = "register";
-  
+
       await this.envioEmail(Usuario, email, correo);
     }
 
