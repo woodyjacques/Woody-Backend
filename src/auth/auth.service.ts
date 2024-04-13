@@ -127,7 +127,7 @@ export class AuthService {
 
     await this.usersService.updatePasswordEmail(email, hashedNewPassword);
 
-    const payload = { email: user.email, name: user.name };
+    const payload = { email: user.email, name: user.name, paper: user.paper };
 
     const token = await this.jwtService.signAsync(payload);
 
@@ -135,6 +135,7 @@ export class AuthService {
       tokens: token,
       name: user.name,
       email: user.email,
+      paper: user.paper,
       message: "Contraseña actualizada correctamente",
     };
   }
