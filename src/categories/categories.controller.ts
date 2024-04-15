@@ -11,11 +11,13 @@ export class CategoriesController {
   constructor(private readonly categoriesService: CategoriesService) {}
 
   @Get()
+  @UseGuards(AuthGuard)
   findAll() {
     return this.categoriesService.findAll();
   }
 
   @Get(':id')
+  @UseGuards(AuthGuard)
   findById(@Param('id') id: number) {
     return this.categoriesService.findById(id);
   }
@@ -27,11 +29,13 @@ export class CategoriesController {
   }
 
   @Patch(':id')
+  @UseGuards(AuthGuard)
   update(@Param('id') id: number, @Body() updateCategoryDto: UpdateCategoryDto) {
     return this.categoriesService.update(id, updateCategoryDto);
   }
 
   @Delete(':id')
+  @UseGuards(AuthGuard)
   remove(@Param('id') id: number) {
     return this.categoriesService.remove(id);
   }
