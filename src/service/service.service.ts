@@ -41,7 +41,7 @@ export class ServiceService {
       await this.enviarCorreos(emailes.emailes);
     }
 
-    return newService;
+    return { message: "Servicio agregada" };
   }
 
   async update(id: number, updateServiceDto: UpdateServiceDto) {
@@ -54,7 +54,7 @@ export class ServiceService {
       await this.enviarCorreos(emailes.emailes);
     }
 
-    return updatedService;
+    return { message: "Servicio actualizado" };
   }
 
   async remove(id: number) {
