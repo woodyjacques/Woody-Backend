@@ -41,7 +41,7 @@ export class BooksService {
       await this.enviarCorreos(emailes.emailes);
     }
 
-    return { message: "libro agregada" };
+    return { message: "Libro agregada" };
   }
 
   async update(id: number, updateBookDto: UpdateBookDto) {
