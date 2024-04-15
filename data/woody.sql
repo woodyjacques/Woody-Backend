@@ -24,10 +24,7 @@ CREATE TABLE book_woody (
 	name varchar(100) NOT NULL,
     categories VARCHAR(100) NOT NULL,
 	description text NOT NULL,
-    price DECIMAL(10,2) NOT NULL,
-    linkCompra VARCHAR(255),
     linkLeer VARCHAR(255),
-    linkEscuchar VARCHAR(255),
     linkImagen VARCHAR(255) NOT NULL,
     PRIMARY KEY (id),
     UNIQUE KEY name (name)

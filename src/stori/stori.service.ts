@@ -46,13 +46,7 @@ export class RelaService {
   async update(id: number, updateStoriDto: UpdateStoriDto) {
     const existingStori = await this.findById(id);
     const updatedStori = { ...existingStori, ...updateStoriDto };
-    const creado = await this.storiRepository.save(updatedStori);
-
-    if (creado) {
-      const emailes = await this.usersService.findAllEmails();
-      await this.enviarCorreos(emailes.emailes);
-    }
-
+    await this.storiRepository.save(updatedStori);
     return { message: "Relato actualizada" };
   }
 

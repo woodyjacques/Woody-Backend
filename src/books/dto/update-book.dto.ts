@@ -2,19 +2,13 @@ import { ApiProperty } from '@nestjs/swagger';
 
 export class UpdateBookDto {
     @ApiProperty()
-    name: string;
+    name?: string;
     @ApiProperty()
-    categories: string;
+    categories?: string;
     @ApiProperty()
-    description: string;
+    description?: string;
     @ApiProperty()
-    price: number;
+    linkLeer?: string;
     @ApiProperty()
-    linkCompra: string;
-    @ApiProperty()
-    linkLeer: string;
-    @ApiProperty()
-    linkEscuchar: string;
-    @ApiProperty()
-    linkImagen: string;
+    linkImagen?: string;
 }

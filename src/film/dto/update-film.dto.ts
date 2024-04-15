@@ -2,15 +2,15 @@ import { ApiProperty } from "@nestjs/swagger";
 
 export class UpdateFilmDto {
     @ApiProperty()
-    name: string;
+    name?: string;
     @ApiProperty()
-    categories: string;
+    categories?: string;
     @ApiProperty()
-    description: string;
+    description?: string;
     @ApiProperty()
-    linkVer: string;
+    linkVer?: string;
     @ApiProperty()
-    linkTrailer: string;
+    linkTrailer?: string;
     @ApiProperty()
-    linkImagen: string;
+    linkImagen?: string;
 }

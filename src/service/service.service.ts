@@ -47,12 +47,7 @@ export class ServiceService {
   async update(id: number, updateServiceDto: UpdateServiceDto) {
     const existingService = await this.findById(id);
     const updatedService = { ...existingService, ...updateServiceDto };
-    const creado = await this.serviceRepository.save(updatedService);
-
-    if (creado) {
-      const emailes = await this.usersService.findAllEmails();
-      await this.enviarCorreos(emailes.emailes);
-    }
+    await this.serviceRepository.save(updatedService);
 
     return { message: "Servicio actualizado" };
   }

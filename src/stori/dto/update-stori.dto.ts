@@ -2,13 +2,13 @@ import { ApiProperty } from '@nestjs/swagger';
 
 export class UpdateStoriDto {
     @ApiProperty()
-    name: string;
+    name?: string;
     @ApiProperty()
-    categories: string;
+    categories?: string;
     @ApiProperty()
-    description: string;
+    description?: string;
     @ApiProperty()
-    linkVer: string;
+    linkVer?: string;
     @ApiProperty()
-    linkImagen: string;
+    linkImagen?: string;
 }

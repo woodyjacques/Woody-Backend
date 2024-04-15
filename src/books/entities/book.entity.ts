@@ -10,13 +10,7 @@ export class BookWoody {
     @Column()
     description: string;
     @Column()
-    price: number;
-    @Column()
-    linkCompra: string;
-    @Column()
     linkLeer: string;
-    @Column()
-    linkEscuchar: string;
     @Column()
     linkImagen: string;
 }

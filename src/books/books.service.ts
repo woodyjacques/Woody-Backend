@@ -13,8 +13,8 @@ export class BooksService {
   constructor(
     @InjectRepository(BookWoody)
     private bookRepository: Repository<BookWoody>,
-    private usersService:UsersService,
-    private authService:AuthService
+    private usersService: UsersService,
+    private authService: AuthService
   ) { }
 
   async findAll() {
@@ -35,26 +35,21 @@ export class BooksService {
   async create(createBookDto: CreateBookDto) {
     const newBook = this.bookRepository.create(createBookDto);
     const creado = await this.bookRepository.save(newBook);
-    
+
     if (creado) {
       const emailes = await this.usersService.findAllEmails();
       await this.enviarCorreos(emailes.emailes);
     }
 
-    return newBook;
+    return { message: "libro agregada" };
   }
 
   async update(id: number, updateBookDto: UpdateBookDto) {
     const existingBook = await this.findById(id);
     const updatedBook = { ...existingBook, ...updateBookDto };
-    const creado = await this.bookRepository.save(updatedBook);
+    await this.bookRepository.save(updatedBook);
 
-    if (creado) {
-      const emailes = await this.usersService.findAllEmails();
-      await this.enviarCorreos(emailes.emailes);
-    }
-
-    return updatedBook;
+    return { message: "Libro actualizada" };
   }
 
   async remove(id: number) {

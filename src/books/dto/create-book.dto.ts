@@ -8,13 +8,7 @@ export class CreateBookDto {
     @ApiProperty()
     description: string;
     @ApiProperty()
-    price: number;
-    @ApiProperty()
-    linkCompra?: string;
-    @ApiProperty()
     linkLeer?: string;
-    @ApiProperty()
-    linkEscuchar?: string;
     @ApiProperty()
     linkImagen: string;
 }

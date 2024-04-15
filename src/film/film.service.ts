@@ -41,20 +41,15 @@ export class PeliService {
       await this.enviarCorreos(emailes.emailes);
     }
 
-    return newFilm;
+    return { message: "Película agregada" };
   }
 
   async update(id: number, updateFilmDto: UpdateFilmDto) {
     const existingFilm = await this.findById(id);
     const updatedFilm = { ...existingFilm, ...updateFilmDto };
-    const creado = await this.filmRepository.save(updatedFilm);
+    await this.filmRepository.save(updatedFilm);
 
-    if (creado) {
-      const emailes = await this.usersService.findAllEmails();
-      await this.enviarCorreos(emailes.emailes);
-    }
-
-    return updatedFilm;
+    return { message: "Película actualizada" };
   }
 
   async remove(id: number) {
