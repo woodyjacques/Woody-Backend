@@ -40,7 +40,7 @@ export class RelaService {
       await this.enviarCorreos(emailes.emailes);
     }
 
-    return newStori;
+    return { message: "Relato agregada" };
   }
 
   async update(id: number, updateStoriDto: UpdateStoriDto) {
@@ -53,7 +53,7 @@ export class RelaService {
       await this.enviarCorreos(emailes.emailes);
     }
 
-    return updatedStori;
+    return { message: "Relato actualizada" };
   }
 
   async remove(id: number) {

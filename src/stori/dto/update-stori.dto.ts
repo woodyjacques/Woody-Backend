@@ -8,7 +8,6 @@ export class UpdateStoriDto {
     @ApiProperty()
     description: string;
     @ApiProperty()
-    @ApiProperty()
     linkVer: string;
     @ApiProperty()
     linkImagen: string;
