@@ -53,3 +53,12 @@ CREATE TABLE service_woody (
     PRIMARY KEY (id),
     UNIQUE KEY name (name)
 );
+
+CREATE TABLE category_woody (
+  id int NOT NULL AUTO_INCREMENT,
+  name varchar(100) NOT NULL,
+  element varchar(200) NOT NULL,
+  description text NOT NULL,
+  PRIMARY KEY (id),
+  UNIQUE KEY name (name)
+);
