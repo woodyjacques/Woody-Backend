@@ -42,11 +42,13 @@ export class AuthController {
   }
 
   @Get("users")
+  @UseGuards(AuthGuard)
   findAll() {
     return this.authService.findAll();
   }
 
   @Get('users:email')
+  @UseGuards(AuthGuard)
   async findByEmail(@Param('email') email: string) {
     return this.authService.findByEmail(email); 
   }

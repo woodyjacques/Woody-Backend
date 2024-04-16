@@ -11,7 +11,6 @@ export class PeliController {
   constructor(private readonly peliService: PeliService) {}
 
   @Get()
-  @UseGuards(AuthGuard)
   findAll() {
     return this.peliService.findAll();
   }

@@ -11,7 +11,6 @@ export class ServiceController {
   constructor(private readonly serviceService: ServiceService) { }
 
   @Get()
-  @UseGuards(AuthGuard)
   findAll() {
     return this.serviceService.findAll();
   }

@@ -11,7 +11,6 @@ export class RelaController {
   constructor(private readonly relaService: RelaService) {}
 
   @Get()
-  @UseGuards(AuthGuard)
   findAll() {
     return this.relaService.findAll();
   }
