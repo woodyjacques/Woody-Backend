@@ -6,5 +6,7 @@ export class CategoryWoody {
     @Column({ unique: true })
     name: string;
     @Column()
+    element: string;
+    @Column()
     description: string;
 }

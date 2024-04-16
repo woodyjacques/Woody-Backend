@@ -11,14 +11,6 @@ CREATE TABLE user_woody (
     UNIQUE KEY email (email)
 );
 
-CREATE TABLE category_woody  (
-    id int NOT NULL AUTO_INCREMENT,
-	name varchar(100) NOT NULL,
-	description text NOT NULL,
-    PRIMARY KEY (id),
-    UNIQUE KEY name (name)
-);
-
 CREATE TABLE book_woody (
     id int NOT NULL AUTO_INCREMENT,
 	name varchar(100) NOT NULL,
