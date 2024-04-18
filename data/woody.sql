@@ -27,9 +27,9 @@ CREATE TABLE film_woody (
 	name varchar(100) NOT NULL,
     categories VARCHAR(100) NOT NULL,
 	description text NOT NULL,
-    linkVer VARCHAR(255),
-    linkTrailer VARCHAR(255),
-    linkImagen VARCHAR(255) NOT NULL,
+    linkVer text,
+    linkTrailer text,
+    linkImagen text NOT NULL,
     PRIMARY KEY (id),
     UNIQUE KEY name (name)
 );
@@ -39,7 +39,7 @@ CREATE TABLE stori_woody (
 	name varchar(100) NOT NULL,
     categories VARCHAR(100) NOT NULL,
 	description text NOT NULL,
-    linkVer VARCHAR(255),
+    linkVer text,
     linkImagen VARCHAR(255) NOT NULL,
     PRIMARY KEY (id),
     UNIQUE KEY name (name)
