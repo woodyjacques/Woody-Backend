@@ -36,35 +36,34 @@ export class AuthService {
     const user = await this.usersService.findOneByEmail(email);
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/i;
     
-    console.log(user,"user");
-    // if (user) {
-    //   throw new BadRequestException("Correo electrónico ya existe.");
-    // }
+    if (user) {
+      throw new BadRequestException("Correo electrónico ya existe.");
+    }
 
-    // if (!emailRegex.test(email)) {
-    //   throw new BadRequestException("Ingrese un correo válido.");
-    // }
+    if (!emailRegex.test(email)) {
+      throw new BadRequestException("Ingrese un correo válido.");
+    }
 
-    // const hashedPassword = await bcryptjs.hash(password, 10);
+    const hashedPassword = await bcryptjs.hash(password, 10);
 
-    // await this.usersService.create({
-    //   name,
-    //   email,
-    //   password: hashedPassword,
-    //   paper,
-    //   isVerified
-    // });
+    await this.usersService.create({
+      name,
+      email,
+      password: hashedPassword,
+      paper,
+      isVerified
+    });
 
-    // if (paper == "usuario") {
-    //   const Usuario = { email, name, password }
-    //   let correo = "register";
+    if (paper == "usuario") {
+      const Usuario = { email, name, password }
+      let correo = "register";
 
-    //   await this.envioEmail(Usuario, email, correo);
-    // }
+      await this.envioEmail(Usuario, email, correo);
+    }
 
-    // return {
-    //   message: "Usuario registrado correctamente.",
-    // };
+    return {
+      message: "Usuario registrado correctamente.",
+    };
   }
 
   async updateVerificacion(email: string, isVerified: boolean) {
@@ -178,7 +177,7 @@ export class AuthService {
     let filePath: string;
 
     if (correo == "register") {
-      url = `https://woodyjacques.netlify.app/woody-sesion?token=${token}`;
+      url = `https://wjacques.netlify.app/woody-sesion?token=${token}`;
       filePath = path.resolve(process.cwd(), 'src/auth/html/plantillaReg.html');
     }
 
