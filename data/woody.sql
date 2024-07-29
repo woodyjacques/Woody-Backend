@@ -11,18 +11,18 @@ CREATE TABLE user_woody (
     UNIQUE KEY email (email)
 );
 
-CREATE TABLE book_woody (
+CREATE TABLE product_woody (
     id int NOT NULL AUTO_INCREMENT,
 	name varchar(100) NOT NULL,
     categories VARCHAR(100) NOT NULL,
 	description text NOT NULL,
-    linkLeer VARCHAR(255),
+    linkCompra VARCHAR(255),
     linkImagen VARCHAR(255) NOT NULL,
     PRIMARY KEY (id),
     UNIQUE KEY name (name)
 );
 
-CREATE TABLE film_woody (
+CREATE TABLE _woody (
     id int NOT NULL AUTO_INCREMENT,
 	name varchar(100) NOT NULL,
     categories VARCHAR(100) NOT NULL,
