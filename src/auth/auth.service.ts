@@ -35,7 +35,7 @@ export class AuthService {
   async register({ name, email, password, paper, isVerified }: RegisterDto) {
     const user = await this.usersService.findOneByEmail(email);
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/i;
-
+    
     if (user) {
       throw new BadRequestException("Correo electrónico ya existe.");
     }
@@ -177,17 +177,17 @@ export class AuthService {
     let filePath: string;
 
     if (correo == "register") {
-      url = `https://woodyjacques.netlify.app/woody-sesion?token=${token}`;
+      url = `https://wjacques.netlify.app/woody-sesion?token=${token}`;
       filePath = path.resolve(process.cwd(), 'src/auth/html/plantillaReg.html');
     }
 
     if (correo == "agregado") {
-      url = `https://woodyjacques.netlify.app/?token=${token}`;
+      url = `https://wjacques.netlify.app/?token=${token}`;
       filePath = path.resolve(process.cwd(), 'src/auth/html/plantillaAgre.html');
     }
 
     if (correo == "verificacion") {
-      url = `https://woodyjacques.netlify.app/woody-passwordupemail?token=${token}`;
+      url = `https://wjacques.netlify.app/woody-passwordupemail?token=${token}`;
       filePath = path.resolve(process.cwd(), 'src/auth/html/plantilla.html');
     }
 

@@ -5,14 +5,14 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { UsersService } from 'src/users/users.service';
 import { AuthService } from 'src/auth/auth.service';
 import { Repository } from 'typeorm';
-import { Product } from './entities/product.entity';
+import { ProductWoody } from './entities/product.entity';
 
 @Injectable()
 export class ProductService {
   
   constructor(
-    @InjectRepository(Product)
-    private productRepository: Repository<Product>,
+    @InjectRepository(ProductWoody)
+    private productRepository: Repository<ProductWoody>,
     private usersService:UsersService,
     private authService:AuthService
   ) { }
