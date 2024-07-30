@@ -7,8 +7,9 @@ import { AuthModule } from './auth/auth.module';
 import { CategoriesModule } from './categories/categories.module';
 import { BooksModule } from './books/books.module';
 import { StoriModule } from './stori/stori.module';
-import { FilmModule } from './film/film.module';
 import { ServiceModule } from './service/service.module';
+import { ProductModule } from './product/product.module';
+import { CourseModule } from './course/course.module';
 require('dotenv').config();
 
 @Module({
@@ -30,9 +31,10 @@ require('dotenv').config();
     AuthModule,
     CategoriesModule,
     BooksModule,
-    FilmModule,
     StoriModule,
-    ServiceModule
+    ServiceModule,
+    ProductModule,
+    CourseModule
   ],
 })
 export class AppModule {}

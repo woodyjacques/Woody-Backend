@@ -1,6 +1,7 @@
+
 import { ApiProperty } from "@nestjs/swagger";
 
-export class UpdateFilmDto {
+export class UpdateProductDto {
     @ApiProperty()
     name?: string;
     @ApiProperty()
@@ -9,8 +10,6 @@ export class UpdateFilmDto {
     description?: string;
     @ApiProperty()
     linkVer?: string;
-    @ApiProperty()
-    linkTrailer?: string;
     @ApiProperty()
     linkImagen?: string;
 }

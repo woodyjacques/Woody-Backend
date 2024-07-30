@@ -1,7 +1,7 @@
 import {Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 @Entity()
 
-export class FilmWoody {
+export class ProductWoody {
     @PrimaryGeneratedColumn()
     id: number;
     @Column({ unique: true })
@@ -12,8 +12,6 @@ export class FilmWoody {
     description: string;
     @Column()
     linkVer: string;
-    @Column()
-    linkTrailer: string;
     @Column()
     linkImagen: string;
 }

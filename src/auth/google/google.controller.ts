@@ -18,7 +18,7 @@ export class GoogleController {
   @UseGuards(AuthGuard('google'))
   async googleAuthRedirect(@Req() req, @Res() res) {
     const userData = await this.GoogleService.googleLogin(req);
-    res.redirect(`https://woodyjacques.netlify.app/woody-books-users?name=${userData.name}&email=${userData.email}&paper=${userData.paper}&token=${userData.token}`);
+    res.redirect(`https://wjacques.netlify.app/woody-product-users?name=${userData.name}&email=${userData.email}&paper=${userData.paper}&token=${userData.token}`);
   }
 
 }
